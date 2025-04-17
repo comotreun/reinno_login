@@ -19,8 +19,8 @@ public class LoginService {
 	}
 
 	// 로그인
-	public MemberDto selectMember(String userEmail) {
-		return loginMapper.selectMember(userEmail);
+	public MemberDto selectMember(MemberDto memberDto) {
+		return loginMapper.selectMember(memberDto);
 	}
 
 }

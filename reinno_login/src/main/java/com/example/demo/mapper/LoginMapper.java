@@ -8,5 +8,5 @@ import com.example.demo.dto.MemberDto;
 @Mapper
 public interface LoginMapper {
 	public void insertMember(MemberDto memberDto);								//회원가입
-	public MemberDto selectMember(String userEmail);							//로그인
+	public MemberDto selectMember(MemberDto memberDto);							//로그인
 }
