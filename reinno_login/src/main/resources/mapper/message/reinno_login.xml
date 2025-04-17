@@ -5,17 +5,17 @@
 	<!--회원가입-->
 	<insert id="insertMember" parameterType="com.example.demo.dto.MemberDto">
 		INSERT INTO MEMBERS (
-		user_id
-		, user_pw
-		, user_name
-		, user_email
-		, user_role )
-		VALUES (
-		#{userId}
-		, #{userPw}
-		, #{userName}
-		, #{userEmail}
-		, #{userRole} )
+			user_name
+			, user_pw
+			, user_email
+			, user_tel
+			, join_date)
+			VALUES (
+			, #{userName}
+			, #{userPw}
+			, #{userEmail}
+			, #{userTel}
+			, now())
 	</insert>
 	
 	<!--로그인-->
@@ -23,12 +23,12 @@
 		SELECT
 			user_email
 			, user_pw
-			, user_id
-			, user_approval
+			, user_yn
 		FROM
 			MEMBERS
 		WHERE
-			user_email = #{userEmail}
+			user_email = #{userEmail},
+			user_pw = #{userPw}
 	</select>
 
 
