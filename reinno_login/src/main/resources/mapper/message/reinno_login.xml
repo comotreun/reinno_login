@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.demo.web.WebMapper">
+<mapper namespace="com.example.demo.mapper.LoginMapper">
 
-	<!--회원가입-->
-	<insert id="insertMember" parameterType="com.example.demo.dto.MemberDto">
-		INSERT INTO MEMBERS (
-			user_name
-			, user_pw
-			, user_email
-			, user_tel
-			, join_date)
-			VALUES (
-			, #{userName}
-			, #{userPw}
-			, #{userEmail}
-			, #{userTel}
-			, now())
-	</insert>
-	
-	<!--로그인-->
-	<select id="selectMember" parameterType="com.example.demo.dto.MemberDto">
-		SELECT
-			user_email
-			, user_pw
-			, user_yn
-		FROM
-			MEMBERS
-		WHERE
-			user_email = #{userEmail},
-			user_pw = #{userPw}
-	</select>
+    <!-- 회원가입 -->
+    <insert id="insertMember" parameterType="com.example.demo.dto.MemberDto">
+        INSERT INTO MEMBER (
+            user_name,
+            user_pw,
+            user_email,
+            user_tel,
+            join_date
+        ) VALUES (
+            #{userName},
+            #{userPw},
+            #{userEmail},
+            #{userTel},
+            now()
+        )
+    </insert>
 
+    <!-- 로그인 -->
+    <select id="selectMember" parameterType="com.example.demo.dto.MemberDto" resultType="com.example.demo.dto.MemberDto">
+        SELECT
+            user_email,
+            user_pw,
+            user_yn
+        FROM
+            MEMBER
+        WHERE
+            user_email = #{userEmail}
+            AND user_pw = #{userPw}
+    </select>
 
 </mapper>
