@@ -29,7 +29,7 @@ $(function() {
         console.log("로그인 버튼 클릭");
 
         const data = {
-            userName: $('#user_name').val(),
+            userEmail: $('#user_email').val(),
             userPw: $('#user_passwd').val(),
         };
 
